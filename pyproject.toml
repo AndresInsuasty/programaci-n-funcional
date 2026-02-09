@@ -1,7 +1,7 @@
 [project]
-name = "programaci-n-funcional"
+name = "programacion-funcional"
 version = "0.1.0"
-description = "Add your description here"
+description = "Functional programming project with encryption and hashing utilities for cybersecurity and big data"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []

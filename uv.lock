@@ -39,7 +39,7 @@ wheels = [
 ]
 
 [[package]]
-name = "programaci-n-funcional"
+name = "programacion-funcional"
 version = "0.1.0"
 source = { virtual = "." }
 
