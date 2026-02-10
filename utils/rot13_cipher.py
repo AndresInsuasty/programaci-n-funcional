@@ -1,16 +1,16 @@
-"""ROT13 cipher encryption function."""
+"""Función de cifrado ROT13."""
 
 import codecs
 
 
 def rot13_cipher(message: str) -> str:
     """
-    Encrypt a message using ROT13 cipher.
-    
+    Cifra un mensaje usando cifrado ROT13.
+
     Args:
-        message: The input message to encrypt
-        
+        message: El mensaje de entrada a cifrar
+
     Returns:
-        ROT13 encrypted message
+        Mensaje cifrado con ROT13
     """
     return codecs.encode(message, 'rot_13')

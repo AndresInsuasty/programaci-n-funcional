@@ -1,16 +1,16 @@
-"""Base64 encoding function."""
+"""Función de codificación Base64."""
 
 import base64
 
 
 def base64_encode(message: str) -> str:
     """
-    Encode a message using Base64.
-    
+    Codifica un mensaje usando Base64.
+
     Args:
-        message: The input message to encode
-        
+        message: El mensaje de entrada a codificar
+
     Returns:
-        Base64 encoded string
+        Cadena codificada en Base64
     """
     return base64.b64encode(message.encode()).decode()

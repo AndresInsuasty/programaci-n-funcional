@@ -1,26 +1,26 @@
-"""Caesar cipher encryption function."""
+"""Función de cifrado César."""
 
 
 def caesar_cipher(message: str, shift: int = 3) -> str:
     """
-    Encrypt a message using Caesar cipher.
-    
+    Cifra un mensaje usando el cifrado César.
+
     Args:
-        message: The input message to encrypt
-        shift: Number of positions to shift (default: 3)
-        
+        message: El mensaje de entrada a cifrar
+        shift: Número de posiciones a desplazar (por defecto: 3)
+
     Returns:
-        Encrypted message
+        Mensaje cifrado
     """
     result = []
     for char in message:
         if char.isalpha():
-            # Determine if uppercase or lowercase
+            # Determinar si es mayúscula o minúscula
             ascii_offset = ord('A') if char.isupper() else ord('a')
-            # Shift character and wrap around alphabet
+            # Desplazar carácter y envolver alrededor del alfabeto
             shifted = (ord(char) - ascii_offset + shift) % 26
             result.append(chr(shifted + ascii_offset))
         else:
-            # Keep non-alphabetic characters as is
+            # Mantener caracteres no alfabéticos tal como están
             result.append(char)
     return ''.join(result)

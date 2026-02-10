@@ -1,16 +1,16 @@
-"""MD5 hashing function."""
+"""Función de hashing MD5."""
 
 import hashlib
 
 
 def md5_hash(message: str) -> str:
     """
-    Generate MD5 hash of a message.
-    
+    Genera hash MD5 de un mensaje.
+
     Args:
-        message: The input message to hash
-        
+        message: El mensaje de entrada a hashear
+
     Returns:
-        MD5 hash as hexadecimal string
+        Hash MD5 como cadena hexadecimal
     """
     return hashlib.md5(message.encode()).hexdigest()

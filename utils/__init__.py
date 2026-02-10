@@ -1,4 +1,4 @@
-"""Utils package for encryption and hashing functions."""
+"""Paquete de utilidades para funciones de cifrado y hashing."""
 
 from .md5_hash import md5_hash
 from .sha256_hash import sha256_hash

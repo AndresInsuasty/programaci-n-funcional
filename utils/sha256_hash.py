@@ -1,16 +1,16 @@
-"""SHA256 hashing function."""
+"""Función de hashing SHA256."""
 
 import hashlib
 
 
 def sha256_hash(message: str) -> str:
     """
-    Generate SHA256 hash of a message.
-    
+    Genera hash SHA256 de un mensaje.
+
     Args:
-        message: The input message to hash
-        
+        message: El mensaje de entrada a hashear
+
     Returns:
-        SHA256 hash as hexadecimal string
+        Hash SHA256 como cadena hexadecimal
     """
     return hashlib.sha256(message.encode()).hexdigest()
