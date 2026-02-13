@@ -152,9 +152,10 @@ from utils import caesar_cipher
 - Se espera que los estudiantes trabajen en equipo dividiendo el espacio de búsqueda
 
 #### Reto Avanzado (reto.md)
-- Los mensajes objetivo son de exactamente **6 caracteres** (A-Z, a-z, 0-9)
-- Total de combinaciones posibles: 62^6 = 56,800,235,584 (56.8 mil millones)
-- **No es práctico resolverlo por fuerza bruta completa**
-- Requiere estrategias inteligentes: búsqueda basada en diccionarios usando las pistas proporcionadas
-- Cada mensaje tiene una pista que reduce drásticamente el espacio de búsqueda
-- Ejemplo: "Lenguaje de programación" → candidatos como "Python", "Kotlin", etc.
+- Los mensajes objetivo son de exactamente **5 caracteres** (solo letras minúsculas a-z)
+- Total de combinaciones posibles: 26^5 = 11,881,376 (11.88 millones)
+- **SÍ es práctico resolverlo por fuerza bruta** (~3 minutos en 1 núcleo, ~30 segundos en 8 núcleos)
+- **Rainbow table completa es factible**: ~665 MB de almacenamiento, ~3 minutos de generación
+- Perfecto para proyectos educativos de rainbow tables
+- Las pistas permiten estrategias de diccionario inteligente (solución en segundos)
+- Ejemplo: "Lenguaje de serpientes" → candidatos como "python", "snake", etc.

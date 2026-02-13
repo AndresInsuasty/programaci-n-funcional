@@ -1,26 +1,32 @@
-# 🎯 Reto Avanzado: Descifrar Mensajes de 6 Caracteres
+# 🎯 Reto Avanzado: Descifrar Mensajes de 5 Caracteres
 
-Este es un reto avanzado de fuerza bruta para descifrar mensajes de **6 caracteres** que fueron procesados a través del pipeline completo de transformaciones.
+Este es un reto avanzado de fuerza bruta para descifrar mensajes de **5 caracteres** que fueron procesados a través del pipeline completo de transformaciones.
 
 ## 📋 Características del Reto
 
 ### Parámetros del Mensaje Original
-- **Longitud**: Exactamente 6 caracteres
-- **Caracteres permitidos**:
-  - Letras mayúsculas (A-Z): 26 caracteres
-  - Letras minúsculas (a-z): 26 caracteres
-  - Números (0-9): 10 caracteres
-  - **Total**: 62 caracteres posibles por posición
+- **Longitud**: Exactamente 5 caracteres
+- **Caracteres permitidos**: Solo letras minúsculas (a-z)
+- **Total**: 26 caracteres posibles por posición
 
 ### Espacio de Búsqueda
 ```
-Total de combinaciones = 62^6 = 56,800,235,584 (56.8 mil millones)
+Total de combinaciones = 26^5 = 11,881,376 (11.88 millones)
 ```
 
-⚠️ **Advertencia**: Este reto es significativamente más difícil que el original. Con 56.8 mil millones de combinaciones, la fuerza bruta completa puede tardar:
-- **Sin optimización**: Varios días o semanas
-- **Con paralelización (8 núcleos)**: Varios días
-- **Usando las pistas**: Mucho más rápido
+⚠️ **Nivel de dificultad**: Este reto es 7,076 veces más difícil que el reto básico de 4 caracteres (con 36 caracteres).
+
+### Factibilidad Técnica
+
+**Tiempo de cálculo (fuerza bruta completa):**
+- CPU moderna (single-core, ~60k intentos/seg): **~3.3 minutos**
+- CPU 8 núcleos: **~30-45 segundos**
+- Computacionalmente factible ✅
+
+**Almacenamiento (rainbow table completa):**
+- 11,881,376 combinaciones × ~56 bytes/entrada = **~665 MB**
+- Cabe en cualquier computadora moderna ✅
+- Perfecto para proyecto educativo de rainbow tables
 
 ### Pipeline de Transformación
 
@@ -38,98 +44,171 @@ Aquí están los 20 mensajes para descifrar. Cada uno tiene una pista que puede 
 
 | # | Hash (Base64) | Pista | Longitud |
 |---|---|---|---|
-| 1 | `NDI4MTZmOTU2NTRiODk3MTQ2NGRkZjVmMDMyMDQ0YTE=` | Lenguaje de programación | 6 caracteres |
-| 2 | `ZWQ3OTAwN2UzZjQ3NTdjYTRhNDk1MGU0M2Q3Y2UyZTI=` | Plataforma de código | 6 caracteres |
-| 3 | `NDBkMmE0MTBkNzQ2NmRlYTE5NmUzYzc4N2UwZDc3ZDk=` | Contenedores | 6 caracteres |
-| 4 | `NmQ4YjMzNDgwMDM3YTRkMTFjMGJlNzU4ZTE4OGQ0OTk=` | Infraestructura | 6 caracteres |
-| 5 | `OWM0ZWE3YjM4N2QyYWI4NWRhM2IwY2FjYmYyMDRlMTE=` | Frontend | 6 caracteres |
-| 6 | `OWY4YmFhNTBjMmM4NDRlYjA4YTU1ZWUwYmI3MGVmMmI=` | Análisis de datos | 6 caracteres |
-| 7 | `NDc4NWNhNjQ1N2VmODM1OWYyZDg4ZjZhYTczZmU1NzM=` | Puesta en producción | 6 caracteres |
-| 8 | `N2ZlYmJkNGQ5YTFlZGFhYWFmZWQwZTAyMDk2YjhmNDc=` | Función sin servidor | 6 caracteres |
-| 9 | `NDMyN2I5N2IwNjljOTM5MjE0ZTA1YWIwYjAxNDI2ZTY=` | Redes de IA | 6 caracteres |
-| 10 | `NGU0Y2ZmOTdlNjYyZjE0NzljMWVhNDA1MzlkYmU1Y2E=` | Servidor web | 6 caracteres |
-| 11 | `NTY5ZDY3OTBkY2RkZWQ4MGU5MDk0MGNmNTc3MTkxNGM=` | Sistema operativo | 6 caracteres |
-| 12 | `MmQ0MDNiMDU5NDE3NDA5MGM1NGE0MTQ3ZWMwZjgyNzE=` | Núcleo del OS | 6 caracteres |
-| 13 | `ZTc1MjFmMjVmOWE2ZGU5YTMxYTFkYjlkZjEyNDZjMTM=` | Código máquina | 6 caracteres |
-| 14 | `NzY1YTBjNTc5NjM2YzllZGM2MjRlOTQwYTE1YTY4NDU=` | Red de dispositivos | 6 caracteres |
-| 15 | `OGU4ZDkwNDFkZGM0ZmNiOTM5MWU3MTA4NDgxYmYwNDQ=` | Comunicación de red | 6 caracteres |
-| 16 | `Y2I0OWE4ZDEyYmE4YjkxYTQzYzI4YzU4YTk4NDk4ZTM=` | Rama principal | 6 caracteres |
-| 17 | `YTJmZmJjZTY5ZjA2YzJiYWNkYzY2MzAzMDI4Nzk1NTg=` | Repositorio remoto | 6 caracteres |
-| 18 | `MTAxMjA2MGFkMjQzMTY1NGEzNDM4YTRhNDk4NGY4ZDQ=` | Guardar cambios | 6 caracteres |
-| 19 | `ZjIwMzY4Mzk5NTMwOTVjMDI1Y2VjODY3NTAwYzRhNzQ=` | Rama de código | 6 caracteres |
-| 20 | `NWZlZTcyYjU0MmY0YTNkNTJlNTcwM2M3MzFjNDg0ZTY=` | Criptografía | 6 caracteres |
+| 1 | `ODllNjNiNGVhNDVmYmQxNTgzNGM2YmJiMzQ2ZTUyMWU=` | Lenguaje de serpientes | 6 caracteres |
+| 2 | `MTMxNzRkN2RkMGFmMGRhZDQxMjQ3MmI2Y2MwYWM0YmQ=` | Sistema operativo libre | 5 caracteres |
+| 3 | `Nzc3ZjZjZDg2NWEwZDM3MzkzNWI3MDMxYTNhZGRiNWQ=` | Base de datos relacional | 5 caracteres |
+| 4 | `MTZlYzM1NTJiYTE0MTFmZjgwZTYwOGY1YTQwNDY2NGY=` | Base de datos en memoria | 5 caracteres |
+| 5 | `YWVjMzkwYjk0ZjkxODk2YmI4NzIyYTdmZGQ1ZWZmZjc=` | Servidor web y proxy | 5 caracteres |
+| 6 | `ZjllOTJkOWM4YjMyYmViZDRkMjc1Mjc5NjNlNTVhYTI=` | Microframework web Python | 5 caracteres |
+| 7 | `M2JmM2I0NjdkYmU4Yjk3YzlkNDFlMTQ3NTE5Mjg4YTg=` | Librería de interfaces | 5 caracteres |
+| 8 | `NWJjMWI4YTA2YWIwZTQ5ODE1NzRmMTg0ODRkZTU3ZTg=` | Sistema de mensajería | 5 caracteres |
+| 9 | `ODNhMTg4YmYxMmMwZjJiMzg4YTFmNDI0MmM3ODRmN2Q=` | Base de datos NoSQL | 5 caracteres |
+| 10 | `NTNkY2QxZWI3YThjOWZhMzBlNmQ4NjFmZGMwY2M4YmY=` | Plataforma de contenedores | 6 caracteres |
+| 11 | `ZGZiM2U4NTMzMjliOGUxZjZhM2U3YmQyMzJhNjQyNTk=` | Intérprete de comandos | 5 caracteres |
+| 12 | `MGIyYTQzYTE4MjNjYTMyN2UzNDkxOTA3Njk1NGNjODM=` | Protocolo seguro web | 5 caracteres |
+| 13 | `NTA4M2QzOGNkZDk2M2FjMGFiZDAxZTJhZTJhOGJiMTY=` | Usuario con privilegios | 5 caracteres |
+| 14 | `NzRhNzliNjJiYmM3ODZhMmUxMTU2NDNkOTNkNjc5Yjg=` | Inicio de sesión | 5 caracteres |
+| 15 | `NzBiZmY2Yjk4YzdhZDE4YzE1NGZhNmRlYmQ5MmJiOTg=` | Credencial de acceso | 5 caracteres |
+| 16 | `MjZiYjkxMmYzZWQ1OTQxYzJhMzkxYjY3Njg3YjU3YWY=` | Almacenamiento temporal | 5 caracteres |
+| 17 | `MDQ1YmU0NzQzNGQ4NDFjOWVjOWI1YTI5ODI2NjgyYzk=` | Consulta a base de datos | 5 caracteres |
+| 18 | `OGZmOTY0NDg1ODJmNmEwZTQwMWI4MjM0ZjAyZjFjMDA=` | Búsqueda de errores | 5 caracteres |
+| 19 | `NmI2Yzc3ZDVkODFmNWQ2MDVkY2FmMzEwYzUzZmI2N2M=` | Ejecución asíncrona | 5 caracteres |
+| 20 | `MWEwNDA0ZjllOTFmMmNiMzA1YWY0MzQ4OWYzNjRhM2I=` | Fallo en el sistema | 5 caracteres |
 
 ## 💡 Estrategias Recomendadas
 
-### 1. Usar las Pistas
+### 1. Usar las Pistas (Recomendado)
 Las pistas te dan información sobre el mensaje original. Por ejemplo:
-- "Lenguaje de programación" → probablemente sea "Python", "Java", etc.
-- "Plataforma de código" → probablemente sea "GitHub", "GitLab", etc.
+- "Lenguaje de serpientes" → **python**
+- "Sistema operativo libre" → **linux**
+- "Base de datos relacional" → **mysql**
 
 ### 2. Búsqueda Basada en Diccionario
 En lugar de fuerza bruta completa, crea una lista de palabras candidatas relacionadas con la pista:
 
 ```python
-# Ejemplo para el mensaje #1 (Lenguaje de programación)
-candidatos = ["Python", "JavaSc", "Kotlin", "GoLang", "Elixir", "Erlang", ...]
+# Ejemplo para el mensaje #2 (Sistema operativo libre)
+candidatos = ["linux", "unix", "fedora", "debian", "ubuntu"]
 
 for candidato in candidatos:
-    resultado = aplicar_pipeline_completo(candidato)
-    if resultado == objetivo:
-        print(f"¡Encontrado! {candidato}")
+    if len(candidato) == 5:  # Solo 5 caracteres
+        resultado = aplicar_pipeline_completo(candidato)
+        if resultado == objetivo:
+            print(f"¡Encontrado! {candidato}")
 ```
 
-### 3. Trabajo en Equipo
-Dividan los mensajes entre el equipo:
-- Persona 1: Mensajes 1-5
-- Persona 2: Mensajes 6-10
-- Persona 3: Mensajes 11-15
-- Persona 4: Mensajes 16-20
+### 3. Fuerza Bruta Completa (Factible)
+A diferencia del reto anterior de 6 caracteres, **este SÍ es factible resolver por fuerza bruta completa** en pocos minutos:
 
-### 4. Caso Sensible
-Recuerda que estos mensajes distinguen entre mayúsculas y minúsculas:
-- "python" ≠ "Python" ≠ "PYTHON"
+```python
+import string
+import itertools
 
-Basándote en las pistas, puedes inferir el caso correcto:
-- Nombres propios → Primera letra mayúscula (Python, Docker, GitHub)
-- Siglas → Todo mayúsculas (API, SQL, DNS)
-- Términos técnicos → Todo minúsculas (server, client, socket)
+caracteres = string.ascii_lowercase  # Solo a-z
+for combinacion in itertools.product(caracteres, repeat=5):
+    candidato = ''.join(combinacion)
+    # Aplicar pipeline y comparar
+```
+
+### 4. Proyecto de Rainbow Table
+Este reto es **perfecto para crear una rainbow table completa**:
+- Solo necesitas ~665 MB de almacenamiento
+- Puedes calcularla en minutos
+- Una vez generada, la búsqueda es instantánea
 
 ## 🚀 Cómo Ejecutar
 
-### Modificar solucion.py para 6 caracteres
-
-Necesitarás modificar el archivo `solucion.py` para manejar 6 caracteres y los nuevos tipos de caracteres:
+### Opción 1: Modificar solucion.py para 5 caracteres
 
 ```python
 # Cambiar en generar_candidatos():
-caracteres = string.ascii_letters + string.digits  # Mayúsculas, minúsculas y números
+caracteres = string.ascii_lowercase  # Solo letras minúsculas
 
 # Cambiar la longitud:
-for combinacion in itertools.product(caracteres, repeat=6):  # 6 en lugar de 4
+for combinacion in itertools.product(caracteres, repeat=5):  # 5 en lugar de 4
 ```
 
-### Ejecutar con un Hash Específico
+### Opción 2: Usar Diccionario Inteligente
 
-```bash
-# Ejemplo: Descifrar el primer mensaje
-uv run python solucion.py "NDI4MTZmOTU2NTRiODk3MTQ2NGRkZjVmMDMyMDQ0YTE="
+```python
+# Lista de palabras comunes en tecnología de 5 letras
+palabras = [
+    "aaaaa", "bbbbbb", "ccccc", "ddddd", "eeeee", "fffff", "ggggg", "hhhhh", "iiiii",
+]
+
+for palabra in palabras:
+    resultado = aplicar_pipeline_completo(palabra)
+    if resultado == hash_objetivo:
+        print(f"¡Encontrado! {palabra}")
 ```
 
 ## ⏱️ Estimación de Tiempo
 
-- **Fuerza bruta completa**: No práctico (semanas/meses)
-- **Búsqueda con diccionario inteligente**: Segundos a minutos
-- **Búsqueda combinada** (pistas + patrones comunes): Minutos
+| Estrategia | Tiempo Estimado |
+|------------|-----------------|
+| Búsqueda con diccionario inteligente | Segundos |
+| Fuerza bruta completa (1 núcleo) | ~3.3 minutos |
+| Fuerza bruta completa (8 núcleos) | ~30-45 segundos |
+| Consulta a rainbow table precalculada | Milisegundos |
+
+## 🗄️ Proyecto Bonus: Crear Tu Propia Rainbow Table
+
+Este reto es ideal para crear una rainbow table completa como proyecto educativo:
+
+```python
+import sqlite3
+import string
+import itertools
+
+def crear_rainbow_table(output_db="rainbow_5chars.db"):
+    """Genera una rainbow table completa de 5 caracteres."""
+    conn = sqlite3.connect(output_db)
+    c = conn.cursor()
+
+    c.execute('''CREATE TABLE IF NOT EXISTS rainbow
+                 (mensaje TEXT PRIMARY KEY, hash TEXT NOT NULL)''')
+    c.execute('CREATE INDEX IF NOT EXISTS idx_hash ON rainbow(hash)')
+
+    caracteres = string.ascii_lowercase
+    total = 26 ** 5
+    batch = []
+
+    print(f"Generando {total:,} combinaciones...")
+
+    for i, combo in enumerate(itertools.product(caracteres, repeat=5)):
+        mensaje = ''.join(combo)
+        hash_resultado = aplicar_pipeline_completo(mensaje)
+        batch.append((mensaje, hash_resultado))
+
+        if len(batch) >= 10000:
+            c.executemany('INSERT OR IGNORE INTO rainbow VALUES (?,?)', batch)
+            conn.commit()
+            batch = []
+
+            if i % 100000 == 0:
+                print(f"Progreso: {i:,}/{total:,} ({i/total*100:.2f}%)")
+
+    if batch:
+        c.executemany('INSERT OR IGNORE INTO rainbow VALUES (?,?)', batch)
+        conn.commit()
+
+    conn.close()
+    print(f"¡Rainbow table completada! Tamaño: ~665 MB")
+
+# Usar la rainbow table
+def buscar_en_rainbow(hash_objetivo, db_path="rainbow_5chars.db"):
+    conn = sqlite3.connect(db_path)
+    c = conn.cursor()
+    c.execute('SELECT mensaje FROM rainbow WHERE hash = ?', (hash_objetivo,))
+    resultado = c.fetchone()
+    conn.close()
+    return resultado[0] if resultado else None
+```
+
+**Ventajas de este enfoque:**
+- ✅ Generas la tabla una sola vez (~3 minutos)
+- ✅ Búsqueda instantánea para cualquier hash
+- ✅ Solo ~665 MB de almacenamiento
 
 ## 🏆 Desafío Extra
 
 Una vez que descifres los 20 mensajes, intenta:
-1. Documentar tu estrategia de resolución
-2. Medir cuánto tiempo tardaste en cada mensaje
-3. Crear tu propio generador de retos
-4. Implementar paralelización para acelerar la búsqueda
+
+1. **Crear tu propia rainbow table completa** y comparte el tiempo que tardó
+2. **Medir la diferencia de velocidad** entre fuerza bruta y rainbow table
+3. **Comparar diferentes estrategias**: diccionario vs fuerza bruta vs rainbow table
+4. **Generar tus propios mensajes cifrados** y desafiar a tus compañeros
 
 ---
 
-**Suerte con el reto** 🚀 Recuerda: la clave está en usar las pistas de manera inteligente en lugar de fuerza bruta pura.
+**Suerte con el reto** 🚀 
