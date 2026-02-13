@@ -144,7 +144,17 @@ from utils import caesar_cipher
 - Para aplicaciones reales, usar librerías criptográficas establecidas
 
 ### Contexto del Reto
+
+#### Reto Básico (README.md)
 - Los mensajes objetivo son de exactamente **4 caracteres** (a-z, 0-9)
 - Total de combinaciones posibles: 36^4 = 1,679,616
 - El reto está diseñado para ser resuelto mediante **fuerza bruta paralelizada**
 - Se espera que los estudiantes trabajen en equipo dividiendo el espacio de búsqueda
+
+#### Reto Avanzado (reto.md)
+- Los mensajes objetivo son de exactamente **6 caracteres** (A-Z, a-z, 0-9)
+- Total de combinaciones posibles: 62^6 = 56,800,235,584 (56.8 mil millones)
+- **No es práctico resolverlo por fuerza bruta completa**
+- Requiere estrategias inteligentes: búsqueda basada en diccionarios usando las pistas proporcionadas
+- Cada mensaje tiene una pista que reduce drásticamente el espacio de búsqueda
+- Ejemplo: "Lenguaje de programación" → candidatos como "Python", "Kotlin", etc.
